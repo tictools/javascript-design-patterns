@@ -1,4 +1,4 @@
-import AddCommand from "../AddCommand";
+import AddCommand from "../../AddCommand";
 
 describe("given Command", () => {
   test("when execute method is invoked then expected output should be returned", () => {

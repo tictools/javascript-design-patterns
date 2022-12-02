@@ -1,4 +1,4 @@
-import { MockCommand } from "../mocks/MockCommand";
+import MockCommand from "../../mocks/MockCommand";
 
 describe("given Command", () => {
   test("when an instance is created then execute method is defined", () => {
