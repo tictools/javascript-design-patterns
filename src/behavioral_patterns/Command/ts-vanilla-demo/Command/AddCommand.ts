@@ -1,4 +1,4 @@
-import { CommandController } from "./types";
+import { CommandController } from "../types";
 
 export default class AddCommand implements CommandController {
   #value: number;
