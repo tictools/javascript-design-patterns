@@ -1,6 +1,6 @@
 import { CommandController } from "../types";
 
-export class MockCommand implements CommandController {
+export default class MockCommand implements CommandController {
   #value: number;
 
   constructor(value: number) {
