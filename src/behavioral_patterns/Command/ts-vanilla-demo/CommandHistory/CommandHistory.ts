@@ -1,4 +1,4 @@
-import { CommandController, HistoryCommands } from "./types";
+import { CommandController, HistoryCommands } from "../types";
 
 export default class CommandHistory implements HistoryCommands {
   #history: CommandController[];

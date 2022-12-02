@@ -1,4 +1,4 @@
-import CommandHistory from "../../CommandHistory";
+import CommandHistory from "../../HistoryCommand/CommandHistory";
 import MockCommand from "../../mocks/MockCommand";
 import { CommandController } from "../../types";
 
