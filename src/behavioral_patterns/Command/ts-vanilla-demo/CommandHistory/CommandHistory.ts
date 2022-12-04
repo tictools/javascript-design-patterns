@@ -1,6 +1,6 @@
-import { CommandOperations, HistoryCommands, ListActions } from "../types";
+import { CommandOperations, HistoryCommands } from "../types";
 
-export default class CommandHistory implements HistoryCommands, ListActions {
+export default class CommandHistory implements HistoryCommands {
   #history: CommandOperations[];
 
   constructor() {

@@ -1,9 +1,7 @@
-import { CommandOperations, HistoryCommands, ListActions } from "../types";
+import { CommandOperations, HistoryCommands } from "../types";
 import MockCommand from "./MockCommand";
 
-export default class MockhistoryCommand
-  implements HistoryCommands, ListActions
-{
+export default class MockhistoryCommand implements HistoryCommands {
   push(command: CommandOperations) {
     console.log("push");
   }
