@@ -2,6 +2,7 @@ import { CommandOperations, HistoryCommands } from "../types";
 
 export default class CommandHistory implements HistoryCommands {
   #history: CommandOperations[];
+
   constructor() {
     this.#history = [];
   }
@@ -11,7 +12,8 @@ export default class CommandHistory implements HistoryCommands {
   }
 
   pop() {
-    this.#history.pop();
+    const command = this.#history.pop();
+    return command;
   }
 
   list() {

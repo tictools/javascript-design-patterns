@@ -5,6 +5,6 @@ export interface CommandOperations {
 
 export interface HistoryCommands {
   push: (command: CommandOperations) => void;
-  pop: () => void;
+  pop: () => CommandOperations | undefined;
   list: () => CommandOperations[];
 }
