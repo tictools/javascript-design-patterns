@@ -14,20 +14,22 @@ describe("given class Calculator", () => {
     spyOnPopHistory = jest.spyOn(MockhistoryCommand.prototype, "pop");
   });
 
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
-  test("when an instance is create then method executeCommand is defined", () => {
+  test("when an instance is create then method executeCommand() is defined", () => {
     const mockedHistory = new MockhistoryCommand();
     const calculator = new Calculator(mockedHistory);
     expect(calculator.executeCommand).toBeDefined();
   });
 
-  test("when an instance is create then method undo is defined", () => {
+  test("when an instance is create then method undo() is defined", () => {
     const mockedHistory = new MockhistoryCommand();
     const calculator = new Calculator(mockedHistory);
     expect(calculator.undo).toBeDefined();
+  });
+
+  test("when an instance is create then method total() is defined", () => {
+    const mockedHistory = new MockhistoryCommand();
+    const calculator = new Calculator(mockedHistory);
+    expect(calculator.total).toBeDefined();
   });
 
   test("when executeCommand method is invoked then methods are called as expected", () => {
@@ -45,5 +47,14 @@ describe("given class Calculator", () => {
 
     calculator.undo();
     expect(spyOnPopHistory).toHaveBeenCalledTimes(1);
+  });
+
+  test("when total() method is invoked then total is returned as expected", () => {
+    const mockedHistory = new MockhistoryCommand();
+    const calculator = new Calculator(mockedHistory);
+
+    calculator.executeCommand(new MockCommand(1));
+    const executeTotal = calculator.total();
+    expect(executeTotal).toEqual(1);
   });
 });
