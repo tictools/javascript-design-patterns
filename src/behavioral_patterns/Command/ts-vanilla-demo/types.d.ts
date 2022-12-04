@@ -6,7 +6,6 @@ export interface CommandOperations {
 export interface CalculatorActions {
   executeCommand: (command: CommandController) => void;
   undo: () => void;
-  list: () => CommandOperations[];
 }
 
 export interface HistoryCommands {
