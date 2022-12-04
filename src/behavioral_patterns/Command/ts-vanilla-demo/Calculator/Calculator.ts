@@ -21,7 +21,7 @@ export default class Calculator implements CalculatorActions {
   undo() {
     const command = this.#history.pop();
     if (command) {
-      command.undo(this.#total);
+      this.#total = command.undo(this.#total);
     }
   }
 
