@@ -7,11 +7,11 @@ export default class MockCommand implements CommandOperations {
     this.#value = value;
   }
 
-  execute(value: number) {
-    return value;
+  execute(currentValue: number) {
+    return currentValue + this.#value;
   }
 
-  undo(value: number) {
-    return value;
+  undo(currentValue: number) {
+    return currentValue - this.#value;
   }
 }
