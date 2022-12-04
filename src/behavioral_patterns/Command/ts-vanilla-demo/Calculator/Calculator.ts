@@ -24,4 +24,8 @@ export default class Calculator implements CalculatorActions {
       command.undo(this.#total);
     }
   }
+
+  total() {
+    return this.#total;
+  }
 }
