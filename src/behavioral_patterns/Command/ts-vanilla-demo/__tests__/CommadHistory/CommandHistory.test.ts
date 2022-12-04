@@ -19,6 +19,11 @@ describe("given HistoryCommand", () => {
     expect(history.pop).toBeDefined();
   });
 
+  test("when an instance is created then undo method is defined", () => {
+    const history = new CommandHistory();
+    expect(history.list).toBeDefined();
+  });
+
   test("when method push and pop are invoked then list is updated as expected", () => {
     const history = new CommandHistory();
     history.push(command);
