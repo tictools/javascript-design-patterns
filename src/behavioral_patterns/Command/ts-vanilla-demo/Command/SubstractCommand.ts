@@ -1,6 +1,6 @@
-import { CommandController } from "../types";
+import { CommandOperations } from "../types";
 
-export default class SubstractCommand implements CommandController {
+export default class SubstractCommand implements CommandOperations {
   #value: number;
 
   constructor(value: number) {

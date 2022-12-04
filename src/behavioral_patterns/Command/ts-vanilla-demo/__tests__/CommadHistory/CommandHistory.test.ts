@@ -1,9 +1,9 @@
 import CommandHistory from "../../CommandHistory/CommandHistory";
 import MockCommand from "../../mocks/MockCommand";
-import { CommandController } from "../../types";
+import { CommandOperations } from "../../types";
 
 describe("given HistoryCommand", () => {
-  let command: CommandController;
+  let command: CommandOperations;
 
   beforeEach(() => {
     command = new MockCommand(5);

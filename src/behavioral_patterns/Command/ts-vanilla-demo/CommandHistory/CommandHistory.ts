@@ -1,12 +1,12 @@
-import { CommandController, HistoryCommands } from "../types";
+import { CommandOperations, HistoryCommands } from "../types";
 
 export default class CommandHistory implements HistoryCommands {
-  #history: CommandController[];
+  #history: CommandOperations[];
   constructor() {
     this.#history = [];
   }
 
-  push(command: CommandController) {
+  push(command: CommandOperations) {
     this.#history.push(command);
   }
 

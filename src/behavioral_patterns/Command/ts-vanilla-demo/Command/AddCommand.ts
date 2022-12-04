@@ -1,6 +1,6 @@
-import { CommandController } from "../types";
+import { CommandOperations } from "../types";
 
-export default class AddCommand implements CommandController {
+export default class AddCommand implements CommandOperations {
   #value: number;
 
   constructor(value: number) {
