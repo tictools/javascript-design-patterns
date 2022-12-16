@@ -21,7 +21,7 @@
 # Behavioral patterns
 
 <input type='checkbox'/> Chain of Responsability <br/>
-<input type='checkbox'/> Command <br/>
+<input type='checkbox' checked/> Command: <code>turn a request into a stand-alone object that contains all information about the request. → [Refactoring Guru doc](https://refactoring.guru/design-patterns/command) </code> <br/>
 <input type='checkbox'/> Iterator <br/>
 <input type='checkbox'/> Mediator <br/>
 <input type='checkbox'/> Memento <br/>
