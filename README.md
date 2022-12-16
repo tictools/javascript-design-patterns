@@ -2,31 +2,37 @@
 
 # Creational patterns
 
-<input type='checkbox'/> Builder <br/>
-<input type='checkbox'/> Factory method <br/>
-<input type='checkbox'/> Abstract Factory <br/>
-<input type='checkbox'/> Prototype <br/>
-<input type='checkbox'/> Singleton <br/>
+| Pattern          | Description | doc |
+| ---------------- | ----------- | --- |
+| Builder          | xxx         | --- |
+| Factory method   | xxx         | --- |
+| Abstract Factory | xxx         | --- |
+| Prototype        | xxx         | --- |
+| Singleton        | xxx         | --- |
 
 # Structural patterns
 
-<input type='checkbox'/> Adapter <br/>
-<input type='checkbox'/> Bridge <br/>
-<input type='checkbox'/> Composite <br/>
-<input type='checkbox'/> Decorator <br/>
-<input type='checkbox'/> Facade <br/>
-<input type='checkbox'/> Flyweight <br/>
-<input type='checkbox'/> Proxy
+| Pattern   | Description | doc |
+| --------- | ----------- | --- |
+| Adapter   | xxx         | --- |
+| Bridge    | xxx         | --- |
+| Composite | xxx         | --- |
+| Decorator | xxx         | --- |
+| Facade    | xxx         | --- |
+| Flyweight | xxx         | --- |
+| Proxy     | xxx         | --- |
 
 # Behavioral patterns
 
-<input type='checkbox'/> Chain of Responsability <br/>
-<input type='checkbox' checked/> Command: <code>turn a request into a stand-alone object that contains all information about the request. → [Refactoring Guru doc](https://refactoring.guru/design-patterns/command) </code> <br/>
-<input type='checkbox'/> Iterator <br/>
-<input type='checkbox'/> Mediator <br/>
-<input type='checkbox'/> Memento <br/>
-<input type='checkbox'/> Observer <br/>
-<input type='checkbox'/> State <br/>
-<input type='checkbox'/> Strategy <br/>
-<input type='checkbox'/> Template Method <br/>
-<input type='checkbox'/> Visitor
+| Pattern                 | Description                                                                              | doc                                                                       |
+| ----------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Chain of Responsability | xxx                                                                                      | ---                                                                       |
+| Command                 | turn a request into a stand-alone object that contains all information about the request | <code>[command](https://refactoring.guru/design-patterns/command) </code> |
+| Iterator                | xxx                                                                                      | ---                                                                       |
+| Mediator                | xxx                                                                                      | ---                                                                       |
+| Memento                 | xxx                                                                                      | ---                                                                       |
+| Observer                | xxx                                                                                      | ---                                                                       |
+| State                   | xxx                                                                                      | ---                                                                       |
+| Strategy                | xxx                                                                                      | ---                                                                       |
+| Template Method         | xxx                                                                                      | ---                                                                       |
+| Visitor                 | xxx                                                                                      | ---                                                                       |
