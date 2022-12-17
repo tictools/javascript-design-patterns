@@ -4,7 +4,8 @@ class MockTeslaBaseCostCalculator implements BaseCostCalculator {
   list(): PricesByModel[] {
     return [{ model: "AAA", baseCost: 100 }];
   }
-  baseCost() {
+  baseCost(model: string) {
+    console.log({ model });
     return 100;
   }
 }

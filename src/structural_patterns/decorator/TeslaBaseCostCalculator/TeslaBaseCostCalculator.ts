@@ -3,10 +3,8 @@ import { BaseCostCalculator, PricesByModel } from "../types";
 
 class TeslaBaseCostCalculator implements BaseCostCalculator {
   private basePricesByModel: PricesByModel[];
-  private model: string;
 
-  constructor(model: string) {
-    this.model = model;
+  constructor() {
     this.basePricesByModel = BASE_PRICES_BY_MODEL;
   }
 
@@ -14,9 +12,9 @@ class TeslaBaseCostCalculator implements BaseCostCalculator {
     return this.basePricesByModel;
   }
 
-  baseCost() {
+  baseCost(model: string) {
     const [requestedModel] = BASE_PRICES_BY_MODEL.filter(
-      (item) => item.model === this.model
+      (item) => item.model === model
     );
     return requestedModel.baseCost;
   }

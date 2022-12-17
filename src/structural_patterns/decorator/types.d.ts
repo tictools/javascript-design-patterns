@@ -10,5 +10,5 @@ export interface Options {
 
 export interface BaseCostCalculator {
   list: () => PricesByModel[];
-  baseCost: () => number;
+  baseCost: (model: string) => number;
 }
