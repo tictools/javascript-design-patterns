@@ -1,6 +1,6 @@
-import { BaseCostCalculator, Options, TeslaOperations } from "../types";
+import { BaseCostCalculator, TeslaOperations, TeslaOptions } from "../types";
 
-class Tesla implements Options, TeslaOperations {
+class Tesla implements TeslaOptions, TeslaOperations {
   private baseCostCalculator: BaseCostCalculator;
   private baseAmount: number;
   private amount: number;
