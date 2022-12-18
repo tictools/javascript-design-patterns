@@ -11,7 +11,6 @@ describe("given class tesla", () => {
   test("when an instance is created then expected methods should be defined", () => {
     const tesla = new Tesla("3", baseCostCalculator);
     expect(tesla.getDescription).toBeDefined();
-    expect(tesla.baseCost).toBeDefined();
     expect(tesla.cost).toBeDefined();
   });
 
@@ -23,13 +22,7 @@ describe("given class tesla", () => {
 
   test("when an instance is created then method 'baseCost' should return expected base cost", () => {
     const tesla = new Tesla("Y", baseCostCalculator);
-    const baseCost = tesla.baseCost();
+    const baseCost = tesla.cost();
     expect(baseCost).toEqual(100);
-  });
-
-  test("when an instance is created then method 'cost' should return expected cost", () => {
-    const tesla = new Tesla("Y", baseCostCalculator);
-    const cost = tesla.cost(50);
-    expect(cost).toEqual(150);
   });
 });

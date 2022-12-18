@@ -5,12 +5,7 @@ export type PricesByModel = {
 
 export interface TeslaOptions {
   getDescription: () => string;
-  cost: (qtty: number) => number;
-}
-
-export interface TeslaOperations {
-  baseCost: () => number;
-  #updateCost: (qtty: number) => void;
+  cost: () => number;
 }
 
 export interface BaseCostCalculator {

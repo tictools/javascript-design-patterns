@@ -1,16 +1,14 @@
-import { BaseCostCalculator, TeslaOperations, TeslaOptions } from "../types";
+import { BaseCostCalculator, TeslaOptions } from "../types";
 
-class Tesla implements TeslaOptions, TeslaOperations {
+class Tesla implements TeslaOptions {
   private baseCostCalculator: BaseCostCalculator;
-  private baseAmount: number;
   private amount: number;
   private model: string;
 
   constructor(model: string, baseCostCalculator: BaseCostCalculator) {
     this.model = model;
     this.baseCostCalculator = baseCostCalculator;
-    this.baseAmount = this.baseCostCalculator.baseCost(this.model);
-    this.amount = this.baseAmount;
+    this.amount = this.baseCostCalculator.baseCost(this.model);
   }
 
   getDescription() {
@@ -18,16 +16,7 @@ class Tesla implements TeslaOptions, TeslaOperations {
     return `${BASE_MODEL_DESCRIPTION} ${this.model}`;
   }
 
-  baseCost() {
-    return this.baseAmount;
-  }
-
-  private updateCost(qtty: number) {
-    this.amount = this.amount + qtty;
-  }
-
-  cost(qtty: number) {
-    this.updateCost(qtty);
+  cost() {
     return this.amount;
   }
 }
