@@ -2,7 +2,7 @@ import { BASE_PRICES_BY_OPTION } from "../constants";
 import { TeslaOptions } from "../types";
 import TeslaDecorator from "./TeslaDecorator";
 
-class TeslaAutoPilotDecorators extends TeslaDecorator implements TeslaOptions {
+class TeslaAutoPilotDecorator extends TeslaDecorator implements TeslaOptions {
   wrappee: TeslaOptions;
 
   constructor(wrappee: TeslaOptions) {
@@ -20,4 +20,4 @@ class TeslaAutoPilotDecorators extends TeslaDecorator implements TeslaOptions {
   }
 }
 
-export default TeslaAutoPilotDecorators;
+export default TeslaAutoPilotDecorator;

@@ -15,11 +15,11 @@ class TeslaAccelerationBoostDecorator
 
   getDescription() {
     const wrappeeDescription = this.wrappee.getDescription();
-    return `${wrappeeDescription} + ${BASE_PRICES_BY_OPTION.AUTOPILOT.LABEL}`;
+    return `${wrappeeDescription} + ${BASE_PRICES_BY_OPTION.ACCELERATION_BOOST.LABEL}`;
   }
 
   cost(): number {
-    return this.wrappee.cost() + BASE_PRICES_BY_OPTION.AUTOPILOT.COST;
+    return this.wrappee.cost() + BASE_PRICES_BY_OPTION.ACCELERATION_BOOST.COST;
   }
 }
 
