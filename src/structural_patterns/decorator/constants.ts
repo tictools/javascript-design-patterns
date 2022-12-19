@@ -18,3 +18,14 @@ export const BASE_PRICES_BY_MODEL: PricesByModel[] = [
     baseCost: 51000,
   },
 ];
+
+export const BASE_PRICES_BY_OPTION = {
+  AUTOPILOT: {
+    LABEL: "[AUTOPILOT]",
+    COST: 5000,
+  },
+  ACCELERATION_BOOST: {
+    LABEL: "[ACCELERATION BOOST]",
+    COST: 4000,
+  },
+};
