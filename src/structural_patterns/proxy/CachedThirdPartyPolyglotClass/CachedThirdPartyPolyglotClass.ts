@@ -25,6 +25,7 @@ export class CachedThirdPartyPolyglotClass implements ThirdPartyPolyglotLib {
     const translations = this.flatItems(items);
     const areEqual = this.areEqual(translations);
     if (!areEqual) {
+      console.log("Updating cache...");
       this._cache = this._polyglot.updateTranslations(items);
     }
     return this._cache;
