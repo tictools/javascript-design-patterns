@@ -1,8 +1,8 @@
 import { ThirdPartyPolyglotLib } from "../types";
 
 export class CachedThirdPartyPolyglotClass implements ThirdPartyPolyglotLib {
-  _polyglot: ThirdPartyPolyglotLib;
-  _cache: string[];
+  private _polyglot: ThirdPartyPolyglotLib;
+  private _cache: string[];
 
   constructor(polyglot: ThirdPartyPolyglotLib) {
     this._polyglot = polyglot;
@@ -25,7 +25,7 @@ export class CachedThirdPartyPolyglotClass implements ThirdPartyPolyglotLib {
     const translations = this.flatItems(items);
     const areEqual = this.areEqual(translations);
     if (!areEqual) {
-      console.log("Updating cache...");
+      console.log("💥 Updating cache...");
       this._cache = this._polyglot.updateTranslations(items);
     }
     return this._cache;
