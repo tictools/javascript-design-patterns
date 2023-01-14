@@ -37,8 +37,6 @@ describe("given TeslaDecorator class", () => {
 
   test("when method 'getDescription()' is called then expected decorated string should be returned", () => {
     const EXPECTED_DECORATED_COST = 150;
-    ("Tesla Model description has been decorated");
-
     const spyOnCost: jest.SpyInstance<number, []> = jest.spyOn(
       mockedTesla,
       "cost"
