@@ -4,7 +4,7 @@ export interface ResourceOperations {
   execute: () => void;
 }
 
-export interface Compound {
+export interface CompoundOperations {
   addResource: (resource: any) => void;
   getResources: () => any[];
   removeResource: (id: number) => void;
