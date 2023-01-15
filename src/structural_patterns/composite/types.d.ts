@@ -1,10 +1,11 @@
-export interface Resource {
+export interface ResourceOperations {
   getId: () => number;
   getName: () => string;
   execute: () => void;
 }
 
 export interface Compound {
-  addResource: (resource: ItemType) => void;
-  removeResource: (resource: ItemType) => void;
+  addResource: (resource: any) => void;
+  getResources: () => any[];
+  removeResource: (id: number) => void;
 }

@@ -1,9 +1,9 @@
 import MockResource from "../../mocks/MockResource";
-import { Resource } from "../../types";
+import { ResourceOperations } from "../../types";
 
 describe("given a class Resource", () => {
   describe("when an instance is created", () => {
-    let resource: Resource;
+    let resource: ResourceOperations;
 
     beforeEach(() => {
       resource = new MockResource("resource");

@@ -1,6 +1,6 @@
-import { Resource } from "../types";
+import { ResourceOperations } from "../types";
 
-export default class MockResource implements Resource {
+export default class MockResource implements ResourceOperations {
   private name: string;
   private id: number;
 
