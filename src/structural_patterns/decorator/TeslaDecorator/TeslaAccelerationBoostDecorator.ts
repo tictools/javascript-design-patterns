@@ -2,15 +2,9 @@ import { BASE_PRICES_BY_OPTION } from "../constants";
 import { TeslaOptions } from "../types";
 import TeslaDecorator from "./TeslaDecorator";
 
-class TeslaAccelerationBoostDecorator
-  extends TeslaDecorator
-  implements TeslaOptions
-{
-  wrappee: TeslaOptions;
-
+class TeslaAccelerationBoostDecorator extends TeslaDecorator {
   constructor(wrappee: TeslaOptions) {
-    super();
-    this.wrappee = wrappee;
+    super(wrappee);
   }
 
   getDescription() {
@@ -18,7 +12,7 @@ class TeslaAccelerationBoostDecorator
     return `${wrappeeDescription} + ${BASE_PRICES_BY_OPTION.ACCELERATION_BOOST.LABEL}`;
   }
 
-  cost(): number {
+  cost() {
     return this.wrappee.cost() + BASE_PRICES_BY_OPTION.ACCELERATION_BOOST.COST;
   }
 }
