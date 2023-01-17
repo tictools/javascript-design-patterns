@@ -17,7 +17,5 @@ export default abstract class ElementCourse implements ElementOperations {
     return this.name;
   }
 
-  execute() {
-    console.log(`Method execute() invoked from element ${this.getName()}`);
-  }
+  abstract execute(): void;
 }
