@@ -19,17 +19,17 @@ export default class MockNodeCourse extends NodeCourse {
   }
 
   addResource(resource: any) {
-    console.log(`Adding from Compound`);
+    console.log(`Adding from NodeCourse`);
     this.children.push(resource);
   }
 
   removeResource(id: number) {
-    console.log(`Removing from Compound`);
+    console.log(`Removing from NodeCourse`);
     this.children = this.children.filter((child) => child.getId() !== id);
   }
 
   execute() {
-    console.log(`Executing from Compound...`);
+    console.log(`Executing from NodeCourse...`);
     for (let child of this.children) {
       child.execute();
     }
