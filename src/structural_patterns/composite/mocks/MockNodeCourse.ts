@@ -14,18 +14,18 @@ export default class MockNodeCourse extends NodeCourse {
     return this.name;
   }
 
-  getResources(): ElementOperations[] {
-    return this.children;
+  appendChild(child: ElementOperations) {
+    console.log(`Adding child into NodeCourse`);
+    this.children.push(child);
   }
 
-  addResource(resource: any) {
-    console.log(`Adding from NodeCourse`);
-    this.children.push(resource);
-  }
-
-  removeResource(id: number) {
-    console.log(`Removing from NodeCourse`);
+  removeChild(id: number) {
+    console.log(`Removing child from NodeCourse`);
     this.children = this.children.filter((child) => child.getId() !== id);
+  }
+
+  listChildren(): ElementOperations[] {
+    return this.children;
   }
 
   execute() {

@@ -14,14 +14,19 @@ describe("given MockNodeCourse class", () => {
       expect(node.getName).toBeDefined();
     });
 
-    test("then method 'getResources()' is defined", () => {
+    test("then method 'appendChild()' is defined", () => {
       const node = new MockNodeCourse("resource");
-      expect(node.getResources).toBeDefined();
+      expect(node.appendChild).toBeDefined();
     });
 
-    test("then method 'removeResource()' is defined", () => {
+    test("then method 'removeChild()' is defined", () => {
       const node = new MockNodeCourse("resource");
-      expect(node.removeResource).toBeDefined();
+      expect(node.removeChild).toBeDefined();
+    });
+
+    test("then method 'listChildren()' is defined", () => {
+      const node = new MockNodeCourse("resource");
+      expect(node.listChildren).toBeDefined();
     });
 
     test("then method 'execute()' is defined", () => {
@@ -32,11 +37,11 @@ describe("given MockNodeCourse class", () => {
 
   describe("when method", () => {
     let node: MockNodeCourse;
-    let resource: ElementOperations;
+    let child: ElementOperations;
 
     beforeEach(() => {
       node = new MockNodeCourse("PODCAST");
-      resource = new MockElementCourse("POST");
+      child = new MockElementCourse("POST");
     });
 
     test("'getName()' is called then expected name should be returned", () => {
@@ -51,34 +56,34 @@ describe("given MockNodeCourse class", () => {
 
     test("'execute()' is called then expected array should be returned", () => {
       const spyOnResourceExecute: jest.SpyInstance<void, []> = jest.spyOn(
-        resource,
+        child,
         "execute"
       );
-      node.addResource(resource);
+      node.appendChild(child);
       node.execute();
       expect(spyOnResourceExecute).toHaveBeenCalled();
     });
 
-    test("'getResources()' is called after adding one resource then expected array should be returned", () => {
-      node.addResource(resource);
-      const resources = node.getResources();
+    test("'listChildren()' is called after adding one child then expected array should be returned", () => {
+      node.appendChild(child);
+      const resources = node.listChildren();
       expect(resources).toHaveLength(1);
 
       const [firstResource] = resources;
       expect(firstResource.getName()).toEqual("POST");
     });
 
-    test("'getResources()' is called after adding and removing one resource then expected array should be returned", () => {
-      node.addResource(resource);
+    test("'listChildren()' is called after adding and removing one child then expected array should be returned", () => {
+      node.appendChild(child);
 
-      const resources = node.getResources();
+      const resources = node.listChildren();
       expect(resources).toHaveLength(1);
 
       const [firstResource] = resources;
       const resourceId = firstResource.getId();
 
-      node.removeResource(resourceId);
-      expect(node.getResources()).toHaveLength(0);
+      node.removeChild(resourceId);
+      expect(node.listChildren()).toHaveLength(0);
     });
   });
 });
