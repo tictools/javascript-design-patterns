@@ -1,21 +1,29 @@
 import ElementCourse from "../ElementCourse/ElementCourse";
+import { ElementOperations } from "../types";
 
 export default abstract class NodeCourse extends ElementCourse {
-  protected children: ElementCourse[];
+  protected children: ElementOperations[];
 
   constructor(name: string) {
     super(name);
     this.children = [];
   }
 
+  appendChild(child: ElementOperations) {
+    this.children.push(child);
+  }
+
+  removeChild(id: number) {
+    this.children = this.children.filter((child) => child.getId() !== id);
+  }
+
+  listChildren(): ElementOperations[] {
+    return this.children;
+  }
+
   execute() {
-    console.log(
-      `Executing from an instance of ::${
-        this.constructor.name
-      }:: with name ${this.getName()}`
-    );
-    for (let element of this.children) {
-      element.execute();
+    for (let child of this.children) {
+      child.execute();
     }
   }
 }
