@@ -1,6 +1,6 @@
 import Person from "../Person";
 
-export default class PersonList {
+export default class PersonCollection {
   private items: Person[];
 
   constructor(items: Person[]) {

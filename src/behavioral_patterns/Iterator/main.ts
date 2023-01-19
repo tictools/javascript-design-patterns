@@ -1,5 +1,5 @@
 import Person from "./domain/Person";
-import PersonList from "./domain/PersonList";
+import PersonCollection from "./domain/PersonCollection";
 
 const main = function () {
   const person1 = new Person("Runtime", "Terror", 28, 2);
@@ -11,7 +11,7 @@ const main = function () {
   const items = [];
   items.push(person1, person2, person3, person4, person5);
 
-  const listPerson = new PersonList(items);
+  const listPerson = new PersonCollection(items);
   listPerson.listPersonItems();
 };
 
