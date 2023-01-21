@@ -9,6 +9,8 @@ const SORT_DIRECTION = {
   DESC: "descending",
 };
 
+type SortDirectionKeys = keyof typeof SORT_DIRECTION;
+
 export default class PersonIterator implements ItemIterator {
   private items: PersonOperations[];
   private direction: string;
@@ -17,11 +19,12 @@ export default class PersonIterator implements ItemIterator {
 
   constructor(
     collection: CollectionOperations<PersonOperations>,
-    sortDirection: number
+    sortDirection: string
   ) {
     this.items = collection.getItems();
     this.cache = this.items;
-    this.direction = sortDirection ? SORT_DIRECTION.ASC : SORT_DIRECTION.DESC;
+    this.direction =
+      SORT_DIRECTION[sortDirection as SortDirectionKeys] || SORT_DIRECTION.ASC;
     this.currentPosition = this.setInitialPosition();
   }
 

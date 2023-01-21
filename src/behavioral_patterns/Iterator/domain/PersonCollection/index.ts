@@ -1,4 +1,4 @@
-import PersonIterator from "../../iterator/Iterator";
+import PersonIterator from "../../iterator/PersonIterator";
 import {
   CollectionIterator,
   CollectionOperations,
@@ -28,19 +28,19 @@ export default class PersonCollection
     }
   }
 
-  createSortByNameIterator(direction: number): ItemIterator {
+  createSortByNameIterator(direction: string): ItemIterator {
     const nameSorter = new PersonNameSorter();
     this.items = nameSorter.sort(this.getItems());
     return new PersonIterator(this, direction);
   }
 
-  createSortByAgeIterator(direction: number): ItemIterator {
+  createSortByAgeIterator(direction: string): ItemIterator {
     const ageSorter = new PersonAgeSorter();
     this.items = ageSorter.sort(this.getItems());
     return new PersonIterator(this, direction);
   }
 
-  createSortByChildrenIterator(direction: number): ItemIterator {
+  createSortByChildrenIterator(direction: string): ItemIterator {
     const childrenSorter = new PersonChildrenSorter();
     this.items = childrenSorter.sort(this.getItems());
     return new PersonIterator(this, direction);

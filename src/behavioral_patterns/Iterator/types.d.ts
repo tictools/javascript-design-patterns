@@ -16,7 +16,7 @@ export interface ItemIterator {
 }
 
 export interface CollectionIterator {
-  createSortByNameIterator: (direction: number) => ItemIterator;
-  createSortByAgeIterator: (direction: number) => ItemIterator;
-  createSortByChildrenIterator: (direction: number) => ItemIterator;
+  createSortByNameIterator: (direction: string) => ItemIterator;
+  createSortByAgeIterator: (direction: string) => ItemIterator;
+  createSortByChildrenIterator: (direction: string) => ItemIterator;
 }
