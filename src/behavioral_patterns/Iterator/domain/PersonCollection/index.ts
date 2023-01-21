@@ -3,22 +3,22 @@ import {
   CollectionIterator,
   CollectionOperations,
   ItemIterator,
+  PersonOperations,
 } from "../../types";
-import Person from "../Person";
 import PersonAgeSorter from "../Sorter/PersonAgeSorter";
 import PersonChildrenSorter from "../Sorter/PersonChildrenSorter";
 import PersonNameSorter from "../Sorter/PersonNameSorter";
 
 export default class PersonCollection
-  implements CollectionOperations<Person>, CollectionIterator
+  implements CollectionOperations<PersonOperations>, CollectionIterator
 {
-  private items: Person[];
+  private items: PersonOperations[];
 
-  constructor(items: Person[]) {
+  constructor(items: PersonOperations[]) {
     this.items = items;
   }
 
-  getItems(): Person[] {
+  getItems(): PersonOperations[] {
     return this.items;
   }
 
