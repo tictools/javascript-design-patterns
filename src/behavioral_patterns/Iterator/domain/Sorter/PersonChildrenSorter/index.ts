@@ -1,16 +1,19 @@
-import Person from "../../Person";
+import { PersonOperations } from "../../../types";
 import AbstractSorter from "../AbstractSorter";
 
-export default class PersonChildrenSorter extends AbstractSorter<Person> {
+export default class PersonChildrenSorter extends AbstractSorter<PersonOperations> {
   constructor() {
     super();
   }
 
-  private childrenSorter(elementA: Person, elementB: Person) {
+  private childrenSorter(
+    elementA: PersonOperations,
+    elementB: PersonOperations
+  ) {
     return elementA.totalChildren() - elementB.totalChildren();
   }
 
-  public sort(collection: Person[]): Person[] {
+  public sort(collection: PersonOperations[]): PersonOperations[] {
     return [...collection].sort(this.childrenSorter);
   }
 }

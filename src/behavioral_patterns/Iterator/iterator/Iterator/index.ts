@@ -1,4 +1,3 @@
-import AbstractSorter from "../../domain/Sorter/AbstractSorter";
 import {
   CollectionOperations,
   ItemIterator,
@@ -18,10 +17,9 @@ export default class PersonIterator implements ItemIterator {
 
   constructor(
     collection: CollectionOperations<PersonOperations>,
-    sorter: AbstractSorter<PersonOperations>,
     sortDirection: number
   ) {
-    this.items = sorter.sort(collection.getItems());
+    this.items = collection.getItems();
     this.cache = this.items;
     this.direction = sortDirection ? SORT_DIRECTION.ASC : SORT_DIRECTION.DESC;
     this.currentPosition = this.setInitialPosition();

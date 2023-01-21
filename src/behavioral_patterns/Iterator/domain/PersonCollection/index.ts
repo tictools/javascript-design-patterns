@@ -30,16 +30,19 @@ export default class PersonCollection
 
   createSortByNameIterator(direction: number): ItemIterator {
     const nameSorter = new PersonNameSorter();
-    return new PersonIterator(this, nameSorter, direction);
+    this.items = nameSorter.sort(this.getItems());
+    return new PersonIterator(this, direction);
   }
 
   createSortByAgeIterator(direction: number): ItemIterator {
     const ageSorter = new PersonAgeSorter();
-    return new PersonIterator(this, ageSorter, direction);
+    this.items = ageSorter.sort(this.getItems());
+    return new PersonIterator(this, direction);
   }
 
   createSortByChildrenIterator(direction: number): ItemIterator {
     const childrenSorter = new PersonChildrenSorter();
-    return new PersonIterator(this, childrenSorter, direction);
+    this.items = childrenSorter.sort(this.getItems());
+    return new PersonIterator(this, direction);
   }
 }
