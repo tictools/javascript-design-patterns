@@ -13,9 +13,9 @@ type SortDirectionKeys = keyof typeof SORT_DIRECTION;
 
 export default class PersonIterator implements ItemIterator {
   private items: PersonOperations[];
+  private cache: PersonOperations[];
   private direction: string;
   private currentPosition: number;
-  private cache: PersonOperations[];
 
   constructor(
     collection: CollectionOperations<PersonOperations>,
