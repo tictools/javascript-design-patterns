@@ -28,11 +28,11 @@ export default class PersonIterator implements ItemIterator {
     this.currentPosition = this.setInitialPosition();
   }
 
-  lazyInit(): void {
+  private lazyInit(): void {
     !this.cache.length && (this.cache = this.items);
   }
 
-  setInitialPosition() {
+  private setInitialPosition() {
     return this.direction === SORT_DIRECTION.ASC ? -1 : this.items.length;
   }
 
