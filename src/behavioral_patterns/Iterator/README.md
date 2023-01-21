@@ -1,4 +1,6 @@
-# Description
+# Iterator pattern
+
+## Challenge description
 
 We have an application in which there is a list of person objects whose properties are:
 
@@ -22,3 +24,7 @@ Perform the deployment in several ways:
 - Using Symbol.iterator
 
 There are two patterns to implement in the exercise
+
+## UML
+
+![Iterator pattern](./../static/Iterator.png)
