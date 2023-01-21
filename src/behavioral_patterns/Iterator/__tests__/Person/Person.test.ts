@@ -1,9 +1,9 @@
 import Person from "../../domain/Person";
-import MockPersonOperations from "../../mocks/MockPersonOperations";
+import MockPerson from "../../mocks/MockPerson";
 
 describe("given class Person", () => {
   describe("when an instance is created", () => {
-    let person = new MockPersonOperations();
+    let person = new MockPerson();
     test("then method getFullName() should be defined", () => {
       expect(person.getFullName).toBeDefined();
     });

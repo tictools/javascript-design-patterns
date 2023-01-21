@@ -1,6 +1,6 @@
 import { PersonOperations } from "../types";
 
-export default class MockPersonOperations implements PersonOperations {
+export default class MockPerson implements PersonOperations {
   getFullName() {
     return "Full Name";
   }
