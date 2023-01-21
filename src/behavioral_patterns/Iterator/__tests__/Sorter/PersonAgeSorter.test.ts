@@ -19,6 +19,7 @@ describe("given concrete class PersonAgeSorter", () => {
     const mockPerson1 = new Person("John", "Doe", 20, 1);
     const mockPerson2 = new Person("Ada", "Lovelace", 25, 2);
     const collection = [mockPerson1, mockPerson2];
+
     test("then private method nameSorter() should be called", () => {
       const spyOnNameSorter = jest.spyOn(
         PersonAgeSorter.prototype as any,
@@ -27,7 +28,6 @@ describe("given concrete class PersonAgeSorter", () => {
 
       personAgeSorter.sort(collection);
       expect(spyOnNameSorter).toHaveBeenCalledTimes(1);
-      expect;
     });
 
     test("then result should be sorted as expected", () => {
