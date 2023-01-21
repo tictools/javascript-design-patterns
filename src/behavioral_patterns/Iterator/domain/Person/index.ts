@@ -1,4 +1,6 @@
-export default class Person {
+import { PersonOperations } from "../../types";
+
+export default class Person implements PersonOperations {
   private name: string;
   private surname: string;
   private age: number;
@@ -19,7 +21,7 @@ export default class Person {
     return this.age;
   }
 
-  numOfChildren() {
+  totalChildren() {
     return this.childrens;
   }
 }
