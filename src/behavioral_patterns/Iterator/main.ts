@@ -17,7 +17,7 @@ const main = function () {
   // const iteratorAge = listPerson.createSortByAgeIterator(0);
   // const iteratorChildren = listPerson.createSortByChildrenIterator(0);
 
-  while (!iteratorName.done()) {
+  while (iteratorName.hasNext()) {
     const person = iteratorName.next()?.getFullName();
     console.log({ person });
   }

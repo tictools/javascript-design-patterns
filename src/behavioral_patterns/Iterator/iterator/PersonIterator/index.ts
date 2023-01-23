@@ -1,8 +1,5 @@
-import {
-  CollectionOperations,
-  ItemIterator,
-  PersonOperations,
-} from "../../types";
+import AbstractSorter from "../../domain/Sorter/AbstractSorter";
+import { ItemIterator, PersonOperations } from "../../types";
 
 const SORT_DIRECTION = {
   ASC: "ascending",
@@ -11,6 +8,9 @@ const SORT_DIRECTION = {
 
 type SortDirectionKeys = keyof typeof SORT_DIRECTION;
 
+//TODO
+// implement items.reverse() => remove ternaries
+
 export default class PersonIterator implements ItemIterator {
   private items: PersonOperations[];
   private cache: PersonOperations[];
@@ -18,10 +18,15 @@ export default class PersonIterator implements ItemIterator {
   private currentPosition: number;
 
   constructor(
-    collection: CollectionOperations<PersonOperations>,
-    sortDirection: string
+    // collection: CollectionOperations<PersonOperations>,
+    items: PersonOperations[],
+    sortDirection: string,
+    sorter: AbstractSorter<PersonOperations>
   ) {
-    this.items = collection.getItems();
+    this.items =
+      sortDirection === SORT_DIRECTION.ASC
+        ? sorter.sort(items)
+        : sorter.sort(items).reverse();
     this.cache = this.items;
     this.direction =
       SORT_DIRECTION[sortDirection as SortDirectionKeys] || SORT_DIRECTION.ASC;
