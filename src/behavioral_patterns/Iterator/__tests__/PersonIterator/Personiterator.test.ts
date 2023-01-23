@@ -21,7 +21,7 @@ describe("given a class PersonIterator", () => {
     });
 
     test("then method done() should be defined", () => {
-      expect(personIterator.done).toBeDefined();
+      expect(personIterator.hasNext).toBeDefined();
     });
   });
 
@@ -45,7 +45,7 @@ describe("given a class PersonIterator", () => {
       const personIterator = new PersonIterator(collection, sortDirection);
       let index: number = 0;
 
-      while (personIterator.done() === false) {
+      while (personIterator.hasNext() === false) {
         const person = personIterator.next();
         expect(person).toEqual(collection.getItems()[index]);
         index++;
@@ -57,7 +57,7 @@ describe("given a class PersonIterator", () => {
       const personIterator = new PersonIterator(collection, sortDirection);
       let index: number = collection.getItems().length - 1;
 
-      while (personIterator.done() === false) {
+      while (personIterator.hasNext() === false) {
         const person = personIterator.next();
         expect(person).toEqual(collection.getItems()[index]);
         index--;

@@ -37,7 +37,7 @@ export default class PersonIterator implements ItemIterator {
   }
 
   prev() {
-    if (!this.done()) {
+    if (this.hasNext()) {
       return this.direction === SORT_DIRECTION.ASC
         ? this.cache[--this.currentPosition]
         : this.cache[++this.currentPosition];
@@ -45,17 +45,17 @@ export default class PersonIterator implements ItemIterator {
   }
 
   next() {
-    if (!this.done()) {
+    if (this.hasNext()) {
       return this.direction === SORT_DIRECTION.ASC
         ? this.cache[++this.currentPosition]
         : this.cache[--this.currentPosition];
     }
   }
 
-  done() {
+  hasNext() {
     this.lazyInit();
     return this.direction === SORT_DIRECTION.ASC
-      ? this.currentPosition >= this.cache.length - 1
-      : this.currentPosition <= 0;
+      ? !(this.currentPosition >= this.cache.length - 1)
+      : !(this.currentPosition <= 0);
   }
 }

@@ -3,18 +3,18 @@ import MockPerson from "./MockPerson";
 
 export default class MockPersonIterator implements ItemIterator {
   prev(): PersonOperations | undefined {
-    if (!this.done()) {
+    if (!this.hasNext()) {
       return new MockPerson();
     }
   }
 
   next(): PersonOperations | undefined {
-    if (!this.done()) {
+    if (!this.hasNext()) {
       return new MockPerson();
     }
   }
 
-  done(): boolean {
+  hasNext(): boolean {
     return true;
   }
 }
