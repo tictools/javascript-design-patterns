@@ -14,10 +14,7 @@ const main = function () {
   const listPerson = new PersonCollection(items);
 
   const iteratorName = listPerson.createSortByNameIterator("ASC");
-  // console.log("🚀 ", { iteratorName });
-  // const iteratorAge = listPerson.createSortByAgeIterator(0);
-  // const iteratorChildren = listPerson.createSortByChildrenIterator(0);
-  console.log({ iteratorName_hasNext: iteratorName.hasNext() });
+
   while (iteratorName.hasNext()) {
     const person = iteratorName.next()?.getFullName();
     console.log({ person });
