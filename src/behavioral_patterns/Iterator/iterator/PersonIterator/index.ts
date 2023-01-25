@@ -1,61 +1,45 @@
-import {
-  CollectionOperations,
-  ItemIterator,
-  PersonOperations,
-} from "../../types";
+import AbstractSorter from "../../domain/Sorter/AbstractSorter";
+import { ItemIterator, PersonOperations } from "../../types";
 
 const SORT_DIRECTION = {
-  ASC: "ascending",
-  DESC: "descending",
+  ASC: "ASC",
+  DESC: "DESC",
 };
-
-type SortDirectionKeys = keyof typeof SORT_DIRECTION;
 
 export default class PersonIterator implements ItemIterator {
   private items: PersonOperations[];
   private cache: PersonOperations[];
-  private direction: string;
   private currentPosition: number;
 
   constructor(
-    collection: CollectionOperations<PersonOperations>,
-    sortDirection: string
+    items: PersonOperations[],
+    sortDirection: string,
+    sorter: AbstractSorter<PersonOperations>
   ) {
-    this.items = collection.getItems();
-    this.cache = this.items;
-    this.direction =
-      SORT_DIRECTION[sortDirection as SortDirectionKeys] || SORT_DIRECTION.ASC;
-    this.currentPosition = this.setInitialPosition();
+    this.items =
+      sortDirection === SORT_DIRECTION.ASC
+        ? sorter.sort(items)
+        : sorter.sort(items).reverse();
+    this.cache = [];
+    this.currentPosition = 0;
   }
 
   private lazyInit(): void {
     !this.cache.length && (this.cache = this.items);
   }
 
-  private setInitialPosition() {
-    return this.direction === SORT_DIRECTION.ASC ? -1 : this.items.length;
-  }
-
-  prev() {
-    if (!this.done()) {
-      return this.direction === SORT_DIRECTION.ASC
-        ? this.cache[--this.currentPosition]
-        : this.cache[++this.currentPosition];
-    }
-  }
-
   next() {
-    if (!this.done()) {
-      return this.direction === SORT_DIRECTION.ASC
-        ? this.cache[++this.currentPosition]
-        : this.cache[--this.currentPosition];
+    if (this.hasNext()) {
+      const person = this.cache[this.currentPosition++];
+      // this.currentPosition++;
+      return person;
     }
   }
 
-  done() {
+  hasNext() {
     this.lazyInit();
-    return this.direction === SORT_DIRECTION.ASC
-      ? this.currentPosition >= this.cache.length - 1
-      : this.currentPosition <= 0;
+    return (
+      this.currentPosition >= 0 && this.currentPosition <= this.cache.length - 1
+    );
   }
 }
