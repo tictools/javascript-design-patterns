@@ -10,7 +10,6 @@ export interface CollectionOperations<T> {
 }
 
 export interface ItemIterator {
-  prev: () => PersonOperations | undefined;
   next: () => PersonOperations | undefined;
   hasNext: () => boolean;
 }

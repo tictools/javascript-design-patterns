@@ -2,6 +2,7 @@ import Person from "../../domain/Person";
 import PersonCollection from "../../domain/PersonCollection";
 import PersonIterator from "../../iterator/PersonIterator";
 import MockPersonIterator from "../../mocks/MockPersonIterator";
+import MockSorter from "../../mocks/MockSorter";
 import { ItemIterator } from "../../types";
 
 describe("given a class PersonIterator", () => {
@@ -12,15 +13,11 @@ describe("given a class PersonIterator", () => {
       personIterator = new MockPersonIterator();
     });
 
-    test("then method prev() should be defined", () => {
-      expect(personIterator.prev).toBeDefined();
-    });
-
     test("then method next() should be defined", () => {
       expect(personIterator.next).toBeDefined();
     });
 
-    test("then method done() should be defined", () => {
+    test("then method hasNext() should be defined", () => {
       expect(personIterator.hasNext).toBeDefined();
     });
   });
@@ -30,66 +27,56 @@ describe("given a class PersonIterator", () => {
     const mockPerson2 = new Person("Ada", "Lovelace", 25, 2);
     const mockPerson3 = new Person("Alan", "Turing", 30, 3);
 
-    const collection = new PersonCollection([
-      mockPerson1,
-      mockPerson2,
-      mockPerson3,
-    ]);
+    let mockedSorter: MockSorter;
 
-    let personIterator: MockPersonIterator;
-
-    beforeEach(() => {});
+    beforeEach(() => {
+      mockedSorter = new MockSorter();
+    });
 
     test("and sort direction is 'ASC' then items should be iterated as expected ", () => {
+      const collection = new PersonCollection([
+        mockPerson1,
+        mockPerson2,
+        mockPerson3,
+      ]);
+      const items = collection.getItems();
       const sortDirection = "ASC";
-      const personIterator = new PersonIterator(collection, sortDirection);
+
+      const personIterator = new PersonIterator(
+        items,
+        sortDirection,
+        mockedSorter
+      );
       let index: number = 0;
 
-      while (personIterator.hasNext() === false) {
+      while (personIterator.hasNext() === true) {
         const person = personIterator.next();
-        expect(person).toEqual(collection.getItems()[index]);
+        expect(person).toEqual(items[index]);
         index++;
       }
     });
 
     test("and sort direction is 'DESC' then items should be iterated as expected ", () => {
+      const collection = new PersonCollection([
+        mockPerson1,
+        mockPerson2,
+        mockPerson3,
+      ]);
+      const items = collection.getItems().reverse();
       const sortDirection = "DESC";
-      const personIterator = new PersonIterator(collection, sortDirection);
-      let index: number = collection.getItems().length - 1;
 
-      while (personIterator.hasNext() === false) {
+      const personIterator = new PersonIterator(
+        items,
+        sortDirection,
+        mockedSorter
+      );
+      let index: number = 0;
+
+      while (personIterator.hasNext() === true) {
         const person = personIterator.next();
-        expect(person).toEqual(collection.getItems()[index]);
-        index--;
+        expect(person).toEqual(items[index]);
+        index++;
       }
-    });
-
-    test("and sort direction is 'ASC' then prev() and next() methods should iterate collection as expected  ", () => {
-      const sortDirection = "ASC";
-      const personIterator = new PersonIterator(collection, sortDirection);
-
-      const firstPerson = personIterator.next();
-      expect(firstPerson?.getFullName()).toEqual("John Doe");
-
-      const nextPerson = personIterator.next();
-      expect(nextPerson?.getFullName()).toEqual("Ada Lovelace");
-
-      const prevPerson = personIterator.prev();
-      expect(prevPerson?.getFullName()).toEqual("John Doe");
-    });
-
-    test("and sort direction is 'DESC' then prev() and next() methods should iterate collection as expected  ", () => {
-      const sortDirection = "DESC";
-      const personIterator = new PersonIterator(collection, sortDirection);
-
-      const firstPerson = personIterator.next();
-      expect(firstPerson?.getFullName()).toEqual("Alan Turing");
-
-      const nextPerson = personIterator.next();
-      expect(nextPerson?.getFullName()).toEqual("Ada Lovelace");
-
-      const prevPerson = personIterator.prev();
-      expect(prevPerson?.getFullName()).toEqual("Alan Turing");
     });
   });
 });
