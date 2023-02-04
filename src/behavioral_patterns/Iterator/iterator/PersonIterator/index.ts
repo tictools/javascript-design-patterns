@@ -30,9 +30,7 @@ export default class PersonIterator implements ItemIterator {
 
   next() {
     if (this.hasNext()) {
-      const person = this.cache[this.currentPosition++];
-      // this.currentPosition++;
-      return person;
+      return this.cache[this.currentPosition++];
     }
   }
 

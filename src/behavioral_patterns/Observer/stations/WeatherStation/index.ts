@@ -1,3 +1,4 @@
+import { webcrypto } from "crypto";
 import WeatherData from "../../WeatherData";
 import StationPublisher from "../StationPublisher";
 
@@ -9,20 +10,23 @@ export default class WeatherStation extends StationPublisher {
     this.weatherData = weatherData;
   }
 
+  private randomValue(): number {
+    const [randomValue] = webcrypto.getRandomValues(new Int8Array(1));
+    return randomValue;
+  }
+
   private udpateTemperatureByInterval() {
     setInterval(() => {
-      const randomTemperatureAsString = (Math.random() * 30).toFixed(1);
-      this.weatherData.updateTemperature(Number(randomTemperatureAsString));
+      this.weatherData.updateTemperature(this.randomValue());
       this.notifySubscribers(this.weatherData);
-    }, 4000);
+    }, 1000);
   }
 
   private udpateHumidityByInterval() {
     setInterval(() => {
-      const randomHumidity = Math.floor(Math.random() * 100);
-      this.weatherData.updateHumidity(randomHumidity);
+      this.weatherData.updateHumidity(this.randomValue());
       this.notifySubscribers(this.weatherData);
-    }, 5000);
+    }, 1500);
   }
 
   private updateValues() {

@@ -10,8 +10,6 @@ export default class HumidityDisplay implements StationSubscriber {
     const secondLastHumidityValue = humidityHistory[lastIndex - 1];
 
     if (lastHumidityValue !== secondLastHumidityValue)
-      console.log(
-        `\n🌡️ Temperature Display :: update :: ${lastHumidityValue}ºC\n`
-      );
+      console.log(`\💧 Humidity Display :: update :: ${lastHumidityValue}ºC\n`);
   }
 }
